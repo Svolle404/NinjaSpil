@@ -33,15 +33,15 @@ boolean gameover = false;
 
 void setup() {
   fullScreen(OPENGL);
-  menu = new SoundFile(this, "gameplay.wav");
+  menu = new SoundFile(this, "/lyd/gameplay.wav");
   menu.amp(0.25);
-  gameplay = new SoundFile(this, "gameplay.wav");
+  gameplay = new SoundFile(this, "/lyd/gameplay.wav");
   gameplay.amp(0.25);
-  katanaAttack = new SoundFile(this, "katana.wav");
-  nunchakuAttack = new SoundFile(this, "nunchaku.wav");
-  hit = new SoundFile(this, "hit.wav");
-  powerupAktiver = new SoundFile(this, "powerupAktiver.wav");
-  powerupSpawn = new SoundFile(this, "powerupSpawn.wav");
+  katanaAttack = new SoundFile(this, "/lyd/katana.wav");
+  nunchakuAttack = new SoundFile(this, "/lyd/nunchaku.wav");
+  hit = new SoundFile(this, "/lyd/hit.wav");
+  powerupAktiver = new SoundFile(this, "/lyd/powerupAktiver.wav");
+  powerupSpawn = new SoundFile(this, "/lyd/powerupSpawn.wav");
   forberedelse = new forberedelse();
   forberedelse.koer();
 
