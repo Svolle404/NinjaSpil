@@ -40,23 +40,6 @@ class tabt {
                 }  
                 hovedmenu.leaderboard[i*2] = spillerNavn;
                 hovedmenu.leaderboard[i*2+1] = str(spiller.score);
-
-                //for (int j = 0; j < 10-i; j++) {
-                //  if (i == 0) {
-                //    for (int k = 0; k < 9; k++) {
-                //      hovedmenu.leaderboard[19-k*2] = hovedmenu.leaderboard[19-k*2-2];
-                //      hovedmenu.leaderboard[19-k*2-1] = hovedmenu.leaderboard[19-k*2-3];
-                //    }
-                //    hovedmenu.leaderboard[0] = spillerNavn;
-                //    hovedmenu.leaderboard[1] = str(spiller.score);
-                //  } else {
-                //    hovedmenu.leaderboard[19-j*2-1] = hovedmenu.leaderboard[19-j*2-3];
-                //    hovedmenu.leaderboard[19-j*2] = hovedmenu.leaderboard[19-j*2-2];
-                //    hovedmenu.leaderboard[i*2+1] = str(spiller.score);
-                //    hovedmenu.leaderboard[i*2] = spillerNavn;
-                //  }
-                //}
-
                 search = false;
               }
             }
@@ -68,6 +51,9 @@ class tabt {
           spillerNavn = "";
           gameover = false;
           spiller.liv = 3;
+          katana.t = millis();
+          nunchaku.t = millis();
+          powerups.t = millis();
           for (int i = 0; i < 500; i++) {
             kastestjerner[i].position.set(-100, -100);
             kastestjerner[i].retning.set(-1, -1);
