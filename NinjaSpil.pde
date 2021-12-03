@@ -9,6 +9,7 @@ deltaTime deltaTime;
 hud hud;
 powerups powerups;
 nunchaku nunchaku;
+tabt tabt;
 
 PImage[] spillerAnimation = new PImage[6];
 PImage[] kastestjerne = new PImage[3];
@@ -18,6 +19,7 @@ PImage katanaSwoosh;
 PImage katanaOmraade;
 PImage nunchakuOmraade;
 PImage boble;
+PImage baggrund;
 PFont kongtext;
 int side = 0;
 
@@ -53,6 +55,7 @@ void setup() {
 
 void draw() {
   background(70, 184, 13);
+  //background(baggrund);
   deltaTime.beregn();
   if (side == 0) {
     if (gameplay.isPlaying()) {
@@ -90,18 +93,40 @@ void draw() {
     spiller.vis();
     nunchaku.vis();
     katana.vis();
-    hud.visScore();
-    hud.visNedtaelling();
-    hud.visLiv();
+    if (!gameover) {
+      hud.visScore();
+      hud.visNedtaelling();
+      hud.visLiv();
+    }
 
     if (gameover) {
       noStroke();
-      fill(0, 100);
+      fill(0, 150);
       rect(0, 0, width, height);
+      if (tabt.s > 1) {
+        rect(0, height/2-66, width, 160);
+      }
       cursor();
+      tabt.opdater();
+      tabt.vis();
     } else {
       noCursor();
     }
   }
   deltaTime.opdater();
+}
+
+void keyPressed() {
+  if (gameover && tabt.s > 1) {
+    if (key >= 65 && key <= 90 || key >= 97 && key <= 122 || key >= 48 && key <= 57) {
+      if (tabt.spillerNavn.length() < 10) {
+        tabt.spillerNavn += key;
+        tabt.spillerNavn = tabt.spillerNavn.toUpperCase();
+      }
+    }
+
+    if (key == BACKSPACE && tabt.spillerNavn.length() > 0) {
+      tabt.spillerNavn = tabt.spillerNavn.substring(0, tabt.spillerNavn.length()-1);
+    }
+  }
 }

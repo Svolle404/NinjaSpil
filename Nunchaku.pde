@@ -13,7 +13,7 @@ class nunchaku {
   float side = 0;
 
   void opdater() {
-    if (millis() > t+r) {
+    if (millis()-hud.startTid > t+r) {
       if (!katana.angrib) {
         t = millis();
         r = int(random(10000, 20000));
@@ -80,6 +80,9 @@ class nunchaku {
             spiller.score = millis()-hud.startTid;
             gameover = true;
             spiller.doedsposition = new PVector(mouseX, mouseY);
+            tabt.t = millis();
+            tabt.s = 0;
+            tabt.search = true;
           }
         }
       }

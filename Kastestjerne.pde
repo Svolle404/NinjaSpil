@@ -54,6 +54,9 @@ class kastestjerne {
           spiller.score  = millis()-hud.startTid;
           gameover = true;
           spiller.doedsposition = new PVector(mouseX, mouseY);
+          tabt.t = millis();
+          tabt.s = 0;
+          tabt.search = true;
         }
       }
     }

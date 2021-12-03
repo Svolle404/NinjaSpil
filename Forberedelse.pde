@@ -19,6 +19,7 @@ class forberedelse {
     katanaOmraade = loadImage("/sprites/katanaOmraade.png");
     nunchakuOmraade = loadImage("/sprites/nunchakuOmraade.png");
     boble = loadImage("/sprites/boble.png");
+    baggrund = loadImage("/sprites/temp.jpg");
     for (int i = 0; i < kastestjerner.length; i++) {
       kastestjerner[i] = new kastestjerne();
     }
@@ -29,5 +30,6 @@ class forberedelse {
     hud = new hud();
     powerups = new powerups();
     nunchaku = new nunchaku();
+    tabt = new tabt();
   }
 }
