@@ -129,4 +129,8 @@ void keyPressed() {
       tabt.spillerNavn = tabt.spillerNavn.substring(0, tabt.spillerNavn.length()-1);
     }
   }
+
+  if (key == 27) {
+    key = 0;
+  }
 }
