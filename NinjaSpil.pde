@@ -54,8 +54,7 @@ void setup() {
 }
 
 void draw() {
-  background(70, 184, 13);
-  //background(baggrund);
+  image(baggrund, 0, 0, width, height);
   deltaTime.beregn();
   if (side == 0) {
     if (gameplay.isPlaying()) {
