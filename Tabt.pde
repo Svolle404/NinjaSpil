@@ -48,7 +48,7 @@ class tabt {
           hovedmenu.leaderboard = loadStrings("leaderboard.txt");
           side = 0;
           spiller.score = 0;
-          spiller.svaerhed=  0;
+          spiller.svaerhed = 0;
           spillerNavn = "";
           powerups.fjernKastestjerner = 0;
           powerups.langsommeKastestjerner = false;
