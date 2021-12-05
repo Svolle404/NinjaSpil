@@ -48,12 +48,21 @@ class tabt {
           hovedmenu.leaderboard = loadStrings("leaderboard.txt");
           side = 0;
           spiller.score = 0;
+          spiller.svaerhed=  0;
           spillerNavn = "";
+          powerups.fjernKastestjerner = 0;
+          powerups.langsommeKastestjerner = false;
           gameover = false;
           spiller.liv = 3;
-          katana.t = millis();
-          nunchaku.t = millis();
-          powerups.t = millis();
+          katana.r = int(random(5000, 15000));
+          katana.t = 0;
+          katana.angrib = false;
+          nunchaku.r = int(random(10000, 20000));
+          nunchaku.t = 0;
+          nunchaku.angrib = false;
+          powerups.r = int(random(15000, 20000));
+          powerups.t = 0;
+          powerups.spawnPowerup = false;
           for (int i = 0; i < 500; i++) {
             kastestjerner[i].position.set(-100, -100);
             kastestjerner[i].retning.set(-1, -1);

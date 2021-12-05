@@ -46,8 +46,8 @@ class hovedmenu {
     if (mouseX > width/5-textWidth("PLAY")/2 && mouseX < width/5+textWidth("PLAY")/2 && mouseY > height/2-90 && mouseY < height/2-90+70) {
       play = ">PLAY<";
       if (mousePressed) {
-        side = 1;
         hud.startTid = millis()+3000;
+        side = 1;
       }
     } else {
       play = "PLAY";
