@@ -14,7 +14,7 @@ class powerups {
 
   void opdater() {
     if (millis()-hud.startTid > t+r) {
-      t = millis();
+      t = millis()-hud.startTid;
       r = int(random(15000, 20000));
       powerups.clear();
       powerups.append(0); // Langsommere kastestjerner i 10 sekunder

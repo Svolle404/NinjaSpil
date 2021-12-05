@@ -15,7 +15,7 @@ class nunchaku {
   void opdater() {
     if (millis()-hud.startTid > t+r) {
       if (!katana.angrib) {
-        t = millis();
+        t = millis()-hud.startTid;
         r = int(random(10000, 20000));
         angrib = true;
         blinkTid = 0;
@@ -33,7 +33,7 @@ class nunchaku {
           hastighed = -3;
         }
       } else {
-        t = millis();
+        t = millis()-hud.startTid;
         r = int(random(10000, 20000));
       }
     }
@@ -43,7 +43,7 @@ class nunchaku {
       frame ++;
     }
 
-    if (angrib && millis() > t+1500) {
+    if (angrib && millis()-hud.startTid > t+1500) {
       x += hastighed*deltaTime.dT;
     }
 
@@ -59,7 +59,7 @@ class nunchaku {
 
   void vis() {
     if (angrib) {
-      if (millis() < t+1500) {
+      if (millis()-hud.startTid < t+1500) {
         if (blink) {
           image(nunchakuOmraade, 0, omraade*height/3, width, height/3);
         }

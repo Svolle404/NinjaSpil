@@ -10,15 +10,15 @@ class katana {
   void opdater() {
     if (millis()-hud.startTid > t+r) {
       if (!nunchaku.angrib) {
-      t = millis();
-      r = int(random(5000, 15000));
-      angrib = true;
-      blinkTid = 0;
-      blink = false;
-      playSound = true;
-      omraade = int(random(-0.5, 2.5));
+        t = millis()-hud.startTid;
+        r = int(random(5000, 15000));
+        angrib = true;
+        blinkTid = 0;
+        blink = false;
+        playSound = true;
+        omraade = int(random(-0.5, 2.5));
       } else {
-        t = millis();
+        t = millis()-hud.startTid;
         r = int(random(5000, 15000));
       }
     }
@@ -28,18 +28,18 @@ class katana {
       blinkTid = millis();
     }
 
-    if (millis() > t+1700) {
+    if (millis()-hud.startTid > t+1700) {
       angrib = false;
     }
   }
 
   void vis() {
     if (angrib) {
-      if (blink && millis() < t+1500) {
+      if (blink && millis()-hud.startTid < t+1500) {
         image(katanaOmraade, omraade*width/3, 0, width/3, height);
       }
 
-      if (millis() > t+1500 && !gameover) {
+      if (millis()-hud.startTid > t+1500 && !gameover) {
         image(katanaSwoosh, omraade*width/3, 0, width/3, height);
         if (playSound) {
           katanaAttack.play();
