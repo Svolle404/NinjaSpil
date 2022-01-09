@@ -25,6 +25,7 @@ int side = 0;
 
 SoundFile menu;
 SoundFile gameplay;
+SoundFile deathsong;
 SoundFile katanaAttack;
 SoundFile hit;
 SoundFile powerupAktiver;
@@ -39,6 +40,8 @@ void setup() {
   menu.amp(0.25);
   gameplay = new SoundFile(this, "/lyd/gameplay.wav");
   gameplay.amp(0.25);
+  deathsong = new SoundFile(this, "/lyd/deathsong.wav");
+  deathsong.amp(0.25);
   katanaAttack = new SoundFile(this, "/lyd/katana.wav");
   nunchakuAttack = new SoundFile(this, "/lyd/nunchaku.wav");
   hit = new SoundFile(this, "/lyd/hit.wav");
@@ -60,6 +63,9 @@ void draw() {
     if (gameplay.isPlaying()) {
       gameplay.stop();
     }
+    if (deathsong.isPlaying()) {
+      deathsong.stop();
+    }
 
     if (!menu.isPlaying()) {
       menu.loop();
@@ -71,8 +77,15 @@ void draw() {
       menu.stop();
     }
 
-    if (!gameplay.isPlaying()) {
-      gameplay.loop();
+    if (!gameover) {
+      if (!gameplay.isPlaying()) {
+        gameplay.loop();
+      }
+    } else {
+      gameplay.stop();
+      if (!deathsong.isPlaying()) {
+        deathsong.loop();
+      }
     }
 
     for (int i = powerups.fjernKastestjerner; i < spiller.svaerhed; i++) {
